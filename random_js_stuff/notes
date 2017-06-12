@@ -1,1 +1,2 @@
 Object.keys(React.DOM)
+Object.isFrozen()

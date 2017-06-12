@@ -14,14 +14,17 @@
 
         var Componenet = React.createClass({
             render: function(){
-                return React.DOM.span(null,"I am a Componenet thing or something!");
+                return React.DOM.span(null,"I am " + this.props.name + "!");
             }
 
         });
 
         ReactDOM.render(
-                //THIS WORKS, trying another thing... React.createElement(Componenet),
-                React.createElement("span",null,"HIiIiIIi"),
+                React.createElement(Componenet, {
+                    name:'Alex' //this sets "this.props.whatever" in the Componenet definition
+
+                }),
+
                 document.getElementById("app")
         );
 

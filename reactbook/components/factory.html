@@ -12,17 +12,18 @@
     <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
     <script>
 
-        var Componenet = React.createClass({
+        var Component = React.createClass({
             render: function(){
                 return React.DOM.span(null,"I am a Componenet thing or something!");
             }
 
         });
 
+        var ComponenetFactory = React.createFactory(Component);
+
         ReactDOM.render(
-                //THIS WORKS, trying another thing... React.createElement(Componenet),
-                React.createElement("span",null,"HIiIiIIi"),
-                document.getElementById("app")
+            ComponenetFactory(),
+            document.getElementById("app")
         );
 
     </script>
