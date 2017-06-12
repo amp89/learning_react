@@ -1,0 +1,19 @@
+React.DOM.h1(null,"stuff")
+
+instead of null {
+    id:
+    className
+    htmlFor
+    style: { //use javascript API names here
+        background: "",
+        color:
+        fontFamily:
+
+    }
+
+}
+
+
+///////////////////////////////////
+
+Componennts must have render: imploemented
