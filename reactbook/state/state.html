@@ -20,23 +20,39 @@
             getDefaultProps: function(){
                 return {
                     text:"No text provided",
-                }
+                };
             },
 
             render: function(){
                 return React.DOM.div(
                     null,
                     React.DOM.textarea({
-                        defaultValue: this.props.text,
+                        //defaultValue: this.props.text,
+                        value:this.state.text,
+                        onChange: this._textChange
+
                     }),
                     React.DOM.h3(
                         null,
-                        this.props.text.length + " Chars"
+                        this.state.text.length + " Chars"
                     )
 
-                )
+                );
+            },
+
+            getInitialState: function(){
+                return {
+                    text: this.props.text
+                };
+            },
+
+            _textChange: function(e){ //I have no idea why it has _.  maybe some weird convention
+                this.setState({
+                    text: e.target.value,
+                });
             }
-        })
+
+        });
 
         ReactDOM.render(
             React.createElement(TextAreaCounter, {text:"bob"}),
