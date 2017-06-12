@@ -1,3 +1,14 @@
 this.setState(), react will call render() and update the UI
 
 shouldComponentUpdate():
+
+
+
+
+onClick instead of onclick
+
+event.nativeEvent to get the native browser event that is not the same as reacts event
+
+propTypes:{
+    defaultValue: React.PropTypes.string
+}
