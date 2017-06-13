@@ -26,7 +26,9 @@
         var SpreadSheet = React.createClass({
             name:"StupidSpreadsheet",
             displayName:"StupidSpreadsheet",
-
+            /*
+            react.js:3287 Warning: Accessing PropTypes via the main React package is deprecated. Use the prop-types package from npm instead.
+            */
             propTypes:{
                 headers:React.PropTypes.arrayOf(
                     React.PropTypes.string
@@ -40,7 +42,10 @@
 
 
             getInitialState:function(){
-                return {data:this.props.initialData}
+                return {
+                    data:this.props.initialData
+
+                }
             },
 
             render:function(){
@@ -48,7 +53,7 @@
                     React.DOM.table(
                         null,
                         React.DOM.thead(
-                            null,
+                            {onClick:this._sort},
                             React.DOM.tr(
                                 null,
                                 this.props.headers.map(function(title,idx){
@@ -73,6 +78,17 @@
                     )
                 )
             },
+            //sorts alphabetically
+            _sort: function(e){
+                console.log('sorting');
+                column = e.target.cellIndex;
+                var datacopy = this.state.data.slice();
+                datacopy.sort(function(a,b){
+                    return a[column] > b[column] ? 1: -1;
+                });
+                this.setState({data:datacopy})
+            }
+
         });
 
         ReactDOM.render(
