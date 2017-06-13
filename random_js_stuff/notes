@@ -1,2 +1,4 @@
 Object.keys(React.DOM)
 Object.isFrozen()
+
+arguments is a cool keyword

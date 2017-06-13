@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <title>Hi react</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script>
+
+        var TextAreaCounter = React.createClass({
+            propTypes:{
+                //text: React.PropTypes.string,
+                defaultValue: React.PropTypes.string,
+            },
+
+            getDefaultProps: function(){
+                return {
+                    defaultValue:"No text provided",
+                };
+            },
+
+            render: function(){
+                return React.DOM.div(
+                    null,
+                    React.DOM.textarea({
+                        //defaultValue: this.props.text,
+                        value:this.state.text,
+                        onChange: this._textChange
+
+                    }),
+                    React.DOM.h3(
+                        null,
+                        this.state.text.length + " Chars"
+                    )
+
+                );
+            },
+
+            getInitialState: function(){
+                return {
+                    //text: this.props.text
+                    text: this.props.defaultValue
+                };
+            },
+
+            _textChange: function(e){ //I have no idea why it has _.  maybe some weird convention
+                this.setState({
+                    text: e.target.value,
+                });
+            },
+
+            //NEW
+            componentWillReceiveProps: function(newProps){
+                this.setState({
+                    text:newProps.defaultValue,
+                });
+                /*
+                myTextAreaCounter.setState({text:'Hello'});
+                */
+            },
+
+
+
+        });
+
+        ReactDOM.render(
+            React.createElement(TextAreaCounter, {text:"bob"}),
+            document.getElementById("app")
+
+        )
+    </script>
+</body>
+
+</html>

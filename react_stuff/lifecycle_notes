@@ -1,0 +1,25 @@
+componentWillUpdate()
+    called, before render called after init render
+componentDidUpdate()
+    (oldProps, oldState)
+    after render, DOM changes applied
+componentWillMount()
+    before node inserted into dom
+componentDidMount()
+    after node is inserted into DOM
+componentWillUnmount()
+    before component is removed from DOM
+
+shouldComponentUpdate(newProps,newState)
+    can retrun false, will cancel update, will not render() [again?]
+
+
+ReactDOM.findDOMNode(this) to do stuff like get dimensions
+
+mixinNotes
+
+var logMixin .....{}
+
+var SomeCrap = React.createClass({
+    mixins: [mixin,what,stuff],
+})
