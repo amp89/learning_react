@@ -44,6 +44,8 @@
                 console.log(this.name +"::render() called." );
                 return React.DOM.span(null, this.props.count);
             },
+            //with an actually working version of react, you can add React.addons.PureRenderMixin.  Not available with the stupid CDN thing
+
             shouldComponentUpdate: function(nextProps, nextState_ignore){
 
                 updateBool =  nextProps.count !== this.props.count;
