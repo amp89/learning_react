@@ -36,12 +36,21 @@
 
         var Counter = React.createClass({
             name:'Counter',
-            mixins:[LoggingMixin],
+            //mixins:[LoggingMixin],
             propTypes: {
                 count: React.PropTypes.number.isRequired,
             },
             render: function(){
+                console.log(this.name +"::render() called." );
                 return React.DOM.span(null, this.props.count);
+            },
+            shouldComponentUpdate: function(nextProps, nextState_ignore){
+
+                updateBool =  nextProps.count !== this.props.count;
+                if(!updateBool){
+                    console.log("PREVENTING UPDATE");
+                };
+                return updateBool;
             }
 
         })
@@ -63,6 +72,7 @@
 
             //THIS WILL BE UPDATED TO INCLUDE COUNTER AS A COMPONENT IF THERE IS STUFF
             render: function(){
+                console.log(this.name+"::render() called");
                 var counter = null;
                 if (this.state.text.length > 0){
                     counter = React.DOM.h3(
