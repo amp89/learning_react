@@ -42,6 +42,7 @@
 
 
             getInitialState:function(){
+                console.log("getting initial state");
                 return {
                     data:this.props.initialData,
                     sortby:null,
@@ -50,7 +51,39 @@
                 };
             },
 
+            //sorts alphabetically
+            _sort: function(e){
+
+                var column = e.target.cellIndex; //like idx in the header mapping
+                var descending = (this.state.sortby === column) && !this.state.descending;
+
+                var datacopy = this.state.data.slice();
+                console.log('sorting', descending, column);
+                console.log(this.state.sortby)
+                datacopy.sort(function(a,b){
+                    if(descending){
+                        return a[column] > b[column] ? 1: -1;
+                    }else{
+                        return a[column] < b[column] ? 1: -1;
+                    }
+                });
+                console.log('pre state', this.state.sortby, e.target.cellIndex);
+                this.setState(
+                    {
+                        data:datacopy,
+                        sortby:column,
+                        descending:descending,
+                    });
+                console.log('post state', this.state.sortby, e.target.cellIndex);
+
+            },
+
             render:function(){
+                console.log("rendering table");
+                console.log(this.state);
+                var sortbyValue =  this.state ? this.state.sortby : null;
+                var isDecsending = this.state ? this.state.descending : false;
+                console.log('sortby value', sortbyValue)
                 return (
                     React.DOM.table(
                         null,
@@ -59,6 +92,12 @@
                             React.DOM.tr(
                                 null,
                                 this.props.headers.map(function(title,idx){
+                                    console.log('mapping headers');
+                                    console.log(this.state);
+                                    if(sortbyValue && sortbyValue === idx){
+                                        title += isDecsending ? '\u2191':'\u2193';
+                                    }
+
                                     return React.DOM.th({key:idx},title);
                                 })
                             )
@@ -67,6 +106,7 @@
                         React.DOM.tbody(
                             null,
                             this.state.data.map(function(row,idx){
+                                console.log('mapping body');
                                 return (
                                     React.DOM.tr({key:idx},row.map(
                                         function(cell,idx){
@@ -80,28 +120,7 @@
                     )
                 )
             },
-            //sorts alphabetically
-            _sort: function(e){
 
-                var column = e.target.cellIndex;
-                var descending = (this.state.sortby === column) && !this.state.descending;
-
-                var datacopy = this.state.data.slice();
-                console.log('sorting', descending, column);
-                datacopy.sort(function(a,b){
-                    if(descending){
-                        return a[column] > b[column] ? 1: -1;
-                    }else{
-                        return a[column] < b[column] ? 1: -1;
-                    }
-                });
-                this.setState(
-                    {
-                        data:datacopy,
-                        sortby:column,
-                        descending:descending,
-                    });
-            }
 
         });
 
