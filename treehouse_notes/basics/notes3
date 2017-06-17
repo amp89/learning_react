@@ -1,0 +1,29 @@
+############# STATES AND STUFF
+
+
+component class
+
+SFC - Stateless Functional Component
+
+eg:
+
+Class based component
+
+var Counter = React.createClass({
+    //MUST define render
+    render: function(){
+        //RETURNS VIRTUAL document
+        //THIS IS WHERE THE FUNCTION STUFF FROM function Counter would go!
+        <div className="counter">
+            <button className="counter-action decrement">-</button>
+            <button className="counter-score">{this.props.score}</button> //this. props
+            <button className="counter-action increment">+</button>
+        </div>
+
+    }
+
+    propTypes: {
+        score: React.PropTypes.number.isRequired,
+    }
+
+});

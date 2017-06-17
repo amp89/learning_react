@@ -38,7 +38,8 @@ Header.propTypes = {
     title:React.PropTypes.string.isRequired //No default value on this one, so make required.
 
 };
-
+/*
+//stateless functional component
 function Counter(props){
     return (
         <div className="counter">
@@ -53,7 +54,26 @@ function Counter(props){
 Counter.propTypes = {
     score:React.PropTypes.number.isRequired //No default value on this one, so make required.
 };
+*/
+//Class Based component
+var Counter = React.createClass({
 
+    render: function(){
+        return (
+            <div className="counter">
+                <button className="counter-action decrement">-</button>
+                <button className="counter-score">{this.props.score}</button>
+                <button className="counter-action increment">+</button>
+            </div>
+        )
+    },
+
+    propTypes: {
+        score : React.PropTypes.number.isRequired,
+    },
+
+
+});
 
 
 function Player(props){
