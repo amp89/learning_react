@@ -1,0 +1,69 @@
+Components:
+    div, span, input
+
+    sections of UIs to use over and over again.
+
+
+    components are stuff that is used over and over again
+
+Declarative:
+    describes the result instead of describing the steps (imperative)
+
+
+Some stuff:
+    keep data model and dom ui in sync
+
+
+Virtual DOM - Declarative way of making a site
+
+How react builds app:
+    application logic
+    data
+    markup (representation)
+
+Virtual DOM:
+    javascript representation of DOM
+        faster
+
+Write react markup as building from scratch
+
+React keeps dom representations
+    compares previous and current
+    makes minimal changes to update the DOM
+
+################
+
+Describe DOM element in virtual DOM
+    1. Name (div, span,s cript, a)
+    2. Attributes (href, type)
+    3. Children
+
+    eg:
+        var myWebsiteLink = React.createElement(
+            'a',//NAME
+            {
+                href:"http://www.alexmpeterson.com",
+            },//Attributes
+            "My Website",//Children
+        );
+
+JSX:
+    Extention to javascript, uses xml type syntax
+
+    Replaces above example:
+        var myWebsiteLink = (
+            <a href="http://www.alexmpeterson.com",
+                My Website
+            </a>
+        )//This translates into React.createElement
+
+    !Needs a tool to 'compile' into js
+        Babel
+            translates jsx to js
+            translates features to older browsers
+
+!!!!!!!!!!!!!!!!!
+
+How to make this actually work....
+    cd to index.html directory
+    python -m SimpleHTTPServer
