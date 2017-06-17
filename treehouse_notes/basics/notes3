@@ -27,3 +27,13 @@ var Counter = React.createClass({
     }
 
 });
+
+/////////////////////////////STATE///////////////////////////////////////////
+
+getInitialState: function(){
+    return {
+        score:0
+    }
+}
+
+replace props with state in render
