@@ -1,3 +1,27 @@
+var players = [
+    {
+        name:'alex peterson',
+        score:654,
+        id:1,
+    },
+
+
+    {
+        name:'bob bobberson',
+        score:653524,
+        id:2,
+    },
+
+
+    {
+        name:'bob boberstein',
+        score:65,
+        id:3,
+    },
+
+
+];
+
 function Header(props){
     return (
         <div className="header">
@@ -7,13 +31,13 @@ function Header(props){
         </div>
     )
 
-}
+};
 
 Header.propTypes = {
 
     title:React.PropTypes.string.isRequired //No default value on this one, so make required.
 
-}
+};
 
 function Counter(props){
     return (
@@ -24,11 +48,11 @@ function Counter(props){
         </div>
     )
 
-}
+};
 
 Counter.propTypes = {
     score:React.PropTypes.number.isRequired //No default value on this one, so make required.
-}
+};
 
 
 
@@ -46,12 +70,13 @@ function Player(props){
 
     )
 
-}
+};
 
 Player.propTypes = {
     name: React.PropTypes.string.isRequired,
     score: React.PropTypes.number.isRequired,
-}
+
+};
 
 
 function Application(props){ //props.title=My Scoreboard
@@ -60,29 +85,39 @@ function Application(props){ //props.title=My Scoreboard
             <Header title={props.title} />
 
             <div className="players">
-                <Player name="Alex Peterson" score={654} />
-                <Player name="Alex Peterson" score={65} />
-                <Player name="Alex Peterson" score={54} />
+                {props.players.map(function(player){
+                    return <Player name={player.name} score={player.score} key={player.id}/>
+                })}
             </div>
 
         </div>
     );
 
-}
+};
 
 Application.propTypes = {
 
-    title:React.PropTypes.string.isRequired
+    title:React.PropTypes.string.isRequired,
+    players:React.PropTypes.arrayOf(React.PropTypes.shape(
+        {
+            name:React.PropTypes.string.isRequired,
+            score:React.PropTypes.number.isRequired,
+            id: React.PropTypes.number.isRequired,
+        }
+    )).isRequired
 
-}
+};
 
 Application.defaultProps = {
     title: "Untitled Scoreboard"
-}
+};
 
 
 //ReactDOM.render(<h1>Hello!!!!</h1>,document.getElementById("container"));
 ReactDOM.render(
-        <Application />,
+        <Application
+            title="titleeee"
+            players={players}
+        />,
         document.getElementById('container'));//since proptype string, this will cause an error
 // ReactDOM.render(<Application title="MY SCOREBOARD"/>, document.getElementById('container'));

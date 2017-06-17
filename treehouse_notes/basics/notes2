@@ -35,8 +35,26 @@ title={3}
 
 
 ##############loops n lists
+PropTypes.array.isRequired
+PropTypes.arrayOf(React.PropTypes.Object).isRequired,
+PropTypes.arrayOf(React.PropTypes.shape(
+    {
+        name: React.PropTypes.string.isRequired,
+        score = React.PropTypes.number.isRequired
+    }
+))
 
+    mapping these to Components
 
+    props.players.map(function(player){
+        return <Player name={player.name} score={player.score}>
+    })
+    /////^ works but error in key
+    //make a key thing so it will be faster
+
+        key will be id prop on Player
+        set key={player.id}
+        FIXED...
 
 
 
