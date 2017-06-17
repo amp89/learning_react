@@ -7,3 +7,38 @@ instead of class, use className
 the component Application that we build is a function that takes in props as arguments
 
 components need to take that info and make DOM stuff
+
+
+
+##########js in jsx
+
+{ javascript expressions that return a value here, can't use statements (like if else, switches, etc.)}
+
+
+############## proptypes
+
+affter AppName is defined....
+AppName.PropTypes = {
+    title:React.propTypes.string,requiresd?
+
+}
+
+############passing numbers
+
+title={3}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
