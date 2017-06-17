@@ -75,3 +75,34 @@ React developer tools
     React Developer Tools by facebook, chrome and firefox
 
 #########################################
+
+Side note: react componenets must return a single thingy (nested thingies are okay).
+
+##########js in jsx
+
+{ javascript expressions that return a value here, can't use statements (like if else, switches, etc.)}
+
+
+############## proptypes
+
+affter AppName is defined....
+AppName.PropTypes = {
+    title:React.propTypes.string,requiresd?
+
+}
+
+############passing numbers
+
+title={3}
+
+
+
+
+
+
+
+
+
+
+
+@

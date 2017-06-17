@@ -1,0 +1,9 @@
+##########markup stuff...:
+
+
+instead of class, use className
+
+
+the component Application that we build is a function that takes in props as arguments
+
+components need to take that info and make DOM stuff
