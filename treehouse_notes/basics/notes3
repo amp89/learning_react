@@ -37,3 +37,39 @@ getInitialState: function(){
 }
 
 replace props with state in render
+
+################changing state
+
+onClickDoThisThing onClick={this.onClickDoThisThing}
+
+this.setState({
+    score: this.state.score + 1
+})
+
+
+        setState calls render method each time it is called
+
+always go through setState, otherwise it won't know to re-render
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
