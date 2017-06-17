@@ -30,8 +30,11 @@ title={3}
 
 
 
+##############passing values to sub components
+    ex, <Header title={props.title} /> includes header component, passes props.title.
 
 
+##############loops n lists
 
 
 
