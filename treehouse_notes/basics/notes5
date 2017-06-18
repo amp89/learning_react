@@ -72,6 +72,13 @@ crate stateful stopwatch
             var seconds = Math.floor(this.state.elapsedTime / 1000)
             {seconds}
 
+#### state lib talk
+    #redux
+
+
+
+#
+
 
 
 
