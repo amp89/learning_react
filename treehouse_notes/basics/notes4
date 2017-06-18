@@ -1,0 +1,11 @@
+///////////////////Data Flow and stuff
+
+
+Types of states:
+    Application state
+        scoreboard eg: players and scores
+    Component State
+        component to function, usually only visible in component
+
+
+Most of stuff so far is application states.

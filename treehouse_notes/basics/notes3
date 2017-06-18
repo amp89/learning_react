@@ -50,7 +50,23 @@ this.setState({
         setState calls render method each time it is called
 
 always go through setState, otherwise it won't know to re-render
+########### dynamic initial values
 
+propTypes: {
+    initScore:React.ojalsdfjlasdfjas;dlfjasd;lfj
+
+
+}
+
+
+getInitialState: function(){
+    return{
+        //score:0,
+        score:this.props.initScore
+    }
+}
+
+usually don't want to use props to do this.
 
 
 
