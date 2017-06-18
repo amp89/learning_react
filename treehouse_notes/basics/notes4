@@ -167,6 +167,16 @@ function component Stats (props)
         define nextId, increment after id:this.nextId set (i hate this way of doing it, but i want to follow the example.)
 
 
+        #### remove player
+        on player function
+            onClick this.props.onRemove
+            pass in onRemove
+            in app
+                onRemove= {fn this.onremovewhatever(index)}.bind(this)}
+                onRemovePlayer
+                    this.state.players.splice(index,1) (start,howmany[,replace w this]);
+                    this.setState(this.state);
+
 
 
 
