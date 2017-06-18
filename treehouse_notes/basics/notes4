@@ -28,4 +28,24 @@ Unidirectional dataflow:
         removed onClick
 
         change Component in player from <Counter initialScore=... to score... >
-        
+
+    !!!!!!!!convert application into stateful component
+        doing this because players can change, as well as scores, so Application
+        should have an overall state.
+
+        do it like this:
+
+        Application = React.createClass({
+            render: function(){
+                <COPONENTS FOR APP>//Change props to this.props
+            },
+            propTypes: {
+                ...
+
+            }
+
+            getDefaultProps: function(){
+
+            } //Kind of like getInitialState
+
+        })

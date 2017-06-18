@@ -39,7 +39,6 @@ Header.propTypes = {
 
 };
 
-
 function Counter(props){
     return (
         <div className="counter">
@@ -98,6 +97,7 @@ var Counter = React.createClass({
 });
 
 */
+
 function Player(props){
 
     return (
@@ -120,7 +120,49 @@ Player.propTypes = {
 
 };
 
+var Application = React.createClass({
+    render: function(){
+        return (
 
+            <div className="scoreboard">
+                <Header title={this.props.title} />
+
+                <div className="players">
+                    {
+                        this.props.players.map(function(player)
+                        {
+                            return <Player name={player.name} score={player.score} key={player.id}/>
+                        })
+                    }
+                </div>
+
+            </div>
+        );
+
+    },
+    propTypes: {
+        title:React.PropTypes.string.isRequired,
+        players:React.PropTypes.arrayOf(
+            React.PropTypes.shape(
+                {
+                    name:React.PropTypes.string.isRequired,
+                    score:React.PropTypes.number.isRequired,
+                    id: React.PropTypes.number.isRequired,
+                }
+            )
+        ),
+    },
+
+    getDefaultProps: function(){
+        return ({
+            title:"This is a scoreboard!",
+        });
+    },
+
+
+
+});
+/*
 function Application(props){ //props.title=My Scoreboard
     return (
         <div className="scoreboard">
@@ -154,6 +196,7 @@ Application.defaultProps = {
     title: "Untitled Scoreboard"
 };
 
+*/
 
 //ReactDOM.render(<h1>Hello!!!!</h1>,document.getElementById("container"));
 ReactDOM.render(
