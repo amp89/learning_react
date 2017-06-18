@@ -9,3 +9,18 @@ Types of states:
 
 
 Most of stuff so far is application states.
+
+Application doesn't keep instance of players, just says, they should exist with these properties
+
+
+    Now it re-renders the new children components with new properties when it updates
+
+Unidirectional dataflow:
+    Component uses data passed to it to pass data from children
+    DATA COMES TO PARENT, CASCADES THROUGH DOM TREE TO COMPONENTS
+    uses events, as callback functions, to update state
+        child executes callback function, which may call other callback functions, telling the application to update
+
+#############  Counter is stateful component right now
+    back to functional component right now.
+    
