@@ -45,7 +45,9 @@ Unidirectional dataflow:
             }
 
             getDefaultProps: function(){
-
+                return {
+                    title:whatever.
+                }
             } //Kind of like getInitialState
 
         })
