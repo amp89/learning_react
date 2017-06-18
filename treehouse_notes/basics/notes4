@@ -132,8 +132,20 @@ function component Stats (props)
             onSubmit: function(e)
                 e.preventDefault
 
-            
+        AddPlayerForm
+            proptypes:
+                onAdd: React.PropTypes.func.isRequired //this is a callback to add a player
+            !!!!!!!!!!!important!!!!!!!!!!!!!
+                if value is set in text input, it is a STATE
+                getInitialState: => name:"",
+                change value => this.state.name
+            on text input
+                onChange handler
+                    this.onNameChange
 
+            onNameChange  function(e)
+                console.log(e.target.value) //event.target = input field that gen changed
+                value will be what is just typed in.
 
 
 

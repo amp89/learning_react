@@ -122,17 +122,37 @@ var AddPlayerForm = React.createClass({
         return(
             <div className="add-player-form">
                 <form onSubmit={this.onSubmit}>
-                    <input type='text' placeholder="New Player Name"/>
+                    <input
+                        type='text'
+                        value={this.state.name}
+                        placeholder="New Player Name"
+                        onChange={this.onNameChange}
+                    />
                     <input type='submit' value="ADD" />
                 </form>
             </div>
         );
     },
 
+    onNameChange: function(event){
+        console.log(event.target.value);//event.target is the change generated
+    },
+
     onSubmit: function(event){
         event.preventDefault();
         console.log('sub\'d');
-    }
+    },
+
+    getInitialState: function(){
+        return ({
+            name:"",
+        });
+    },
+
+    propTypes: {
+        onAdd: React.PropTypes.func.isRequired,
+    },
+
 
 
 })
