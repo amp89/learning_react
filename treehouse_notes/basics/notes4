@@ -51,3 +51,11 @@ Unidirectional dataflow:
             } //Kind of like getInitialState
 
         })
+        ###move players to stateful stuff
+        on Application Class:
+            getInitialState:
+            return
+                players:this.props.initialPlayers
+                // turn call to initialPlayers, change in prop types as well
+            change this.props.players to this.state.players
+            
