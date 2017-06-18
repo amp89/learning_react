@@ -42,9 +42,15 @@ Header.propTypes = {
 function Counter(props){
     return (
         <div className="counter">
-            <button  className="counter-action decrement">-</button>
+            <button
+                className="counter-action decrement"
+                onClick={ function() {props.onChange(-1);}}
+            >-</button>
             <button className="counter-score">{props.score}</button>
-            <button className="counter-action increment">+</button>
+            <button
+                className="counter-action increment"
+                onClick={ function() {props.onChange(1);}}
+            >+</button>
         </div>
 
     )
@@ -52,6 +58,7 @@ function Counter(props){
 
 Counter.propTypes = {
     score: React.PropTypes.number.isRequired,
+    onChange: React.PropTypes.func.isRequired,
 }
 
 
@@ -63,7 +70,7 @@ function Player(props){
                 {props.name}
             </div>
             <div className="player-score">
-                <Counter score={props.score} />
+                <Counter onChange={props.onScoreChange} score={props.score} />
             </div>
         </div>
 
@@ -74,7 +81,7 @@ function Player(props){
 Player.propTypes = {
     name: React.PropTypes.string.isRequired,
     score: React.PropTypes.number.isRequired,
-
+    onScoreChange: React.PropTypes.func.isRequired,
 };
 
 var Application = React.createClass({
@@ -87,9 +94,17 @@ var Application = React.createClass({
                 <div className="players">
                     {
                         this.state.players.map(function(player)
-                        {
-                            return <Player name={player.name} score={player.score} key={player.id}/>
-                        })
+                            {
+                                return (
+                                    <Player
+                                        name={player.name}
+                                        score={player.score}
+                                        key={player.id}
+                                        onScoreChange={this.onScoreChange}
+                                    />
+                                )
+                            }.bind(this)
+                        )
                     }
                 </div>
 
@@ -122,8 +137,11 @@ var Application = React.createClass({
                 players:this.props.initialPlayers,
             }
         )
-    }
+    },
 
+    onScoreChange: function(delta){
+        console.log(delta);
+    },
 
 });
 

@@ -58,4 +58,23 @@ Unidirectional dataflow:
                 players:this.props.initialPlayers
                 // turn call to initialPlayers, change in prop types as well
             change this.props.players to this.state.players
-            
+
+############ Implement Counter functionality - CALL BACK functions
+    counter propTypes
+        add onChange function : react.PropTypes.func.isRequired
+        onChange will take a number that is the number to change the thing by
+    button onClick={function(){props.onChange(-1);};} //-1 b/c decrement, +1 for inc.
+
+    counter is created on player, which has no state right now.
+        player needs to send information up, with another callback function
+        propTypes
+            onScoreChange react.PropTypes.func.isRequired
+        <Counter onChange={props.onScoreChange}>
+
+    now on Application
+        player mapping
+            add onScoreChange to player, onScoreChange={this.onScoreChange}
+            !!!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //inside of function in map iterator, this points to iterator.
+            .bind(this) on iterator FUNCTION (after '}'), binds "this" to "this" in outside.
+        now add onScoreChange function to this, that takes in a number (called 'delta' in the example.)
