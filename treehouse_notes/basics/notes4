@@ -113,6 +113,29 @@ function component Stats (props)
 
 
 
+################### FORMS AND INPUTS
+    #HTML STATE by default
+
+    #create add player component, create as Stateful Component Class
+        AddPlayerForm
+            render
+                div addPlayerForm
+                    form
+                        input type text
+                        input type submit value Add Player//i like to use button type=submit instead...
+        Application
+            AddPlayerForm
+                //submits to self and refreshes page right now. OH NOOOO
+
+            form onSubmit={this.onSubmit}
+
+            onSubmit: function(e)
+                e.preventDefault
+
+            
+
+
+
 
 
 

@@ -8,7 +8,7 @@ var players = [
 
     {
         name:'bob bobberson',
-        score:653524,
+        score:99,
         id:2,
     },
 
@@ -117,6 +117,27 @@ Player.propTypes = {
     onScoreChange: React.PropTypes.func.isRequired,
 };
 
+var AddPlayerForm = React.createClass({
+    render: function(){
+        return(
+            <div className="add-player-form">
+                <form onSubmit={this.onSubmit}>
+                    <input type='text' placeholder="New Player Name"/>
+                    <input type='submit' value="ADD" />
+                </form>
+            </div>
+        );
+    },
+
+    onSubmit: function(event){
+        event.preventDefault();
+        console.log('sub\'d');
+    }
+
+
+})
+
+
 var Application = React.createClass({
     render: function(){
         return (
@@ -142,6 +163,8 @@ var Application = React.createClass({
                         )
                     }
                 </div>
+
+                <AddPlayerForm />
 
             </div>
         );
