@@ -78,3 +78,28 @@ Unidirectional dataflow:
             //inside of function in map iterator, this points to iterator.
             .bind(this) on iterator FUNCTION (after '}'), binds "this" to "this" in outside.
         now add onScoreChange function to this, that takes in a number (called 'delta' in the example.)
+    #doesn't make sense yet, because it doesn't know which player!
+        change to (index,delta) on onScoreChange player
+
+        when mapping players, function(player, INDEX) and then on
+        onScoreChnage, anon function that takes delta, and calls this.onScoreChange(INDEX, delta.) //caps not necessary, just showing a point.
+            !!!!!IMPORTANT! this is another anon function, and 'this' needs to be bound.
+            question - is this argument in the map function positional?
+    ####changint he actual state
+        this.state.players[index].score += delta (delta is 1 or -1, remember)
+        this.setState(this.state);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #
