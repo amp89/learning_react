@@ -154,6 +154,24 @@ function component Stats (props)
 
         ######## in application, onAdd:{this.onPlayerAdd}, (name) console.log name
 
+        #####actually adding
+
+        onPlayerAdd
+            this.state.players.push({
+                name:name,
+                score:0,
+                id:this.nextId
+
+            this.setState(this.state);
+
+        define nextId, increment after id:this.nextId set (i hate this way of doing it, but i want to follow the example.)
+
+
+
+
+
+
+#
 
 
 

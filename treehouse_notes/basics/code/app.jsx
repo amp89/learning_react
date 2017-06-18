@@ -198,8 +198,17 @@ var Application = React.createClass({
 
     },
 
+    nextId:4,
+
     onPlayerAdd: function(name){
         console.log('new player',name);
+        this.state.players.push({
+            name:name,
+            score:0,
+            id:this.nextId,
+        })
+        this.nextId++;
+        this.setState(this.state);
     },
 
     propTypes: {
