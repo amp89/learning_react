@@ -147,7 +147,12 @@ function component Stats (props)
                 console.log(e.target.value) //event.target = input field that gen changed
                 value will be what is just typed in.
 
+        ###### submitting
 
+            onSubmit    this.props.onAdd(this.state.name); //onadd callback with current name state
+                        this.setState name:""; //reset state to blank str (can you call getInitialState again manually? hmmm....)
+
+        ######## in application, onAdd:{this.onPlayerAdd}, (name) console.log name
 
 
 

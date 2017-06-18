@@ -136,11 +136,18 @@ var AddPlayerForm = React.createClass({
 
     onNameChange: function(event){
         console.log(event.target.value);//event.target is the change generated
+        this.setState({
+            name:event.target.value,
+        });
     },
 
     onSubmit: function(event){
         event.preventDefault();
         console.log('sub\'d');
+        this.props.onAdd(this.state.name);
+        this.setState({
+            name:"",
+        })
     },
 
     getInitialState: function(){
@@ -184,12 +191,17 @@ var Application = React.createClass({
                     }
                 </div>
 
-                <AddPlayerForm />
+                <AddPlayerForm onAdd={this.onPlayerAdd}/>
 
             </div>
         );
 
     },
+
+    onPlayerAdd: function(name){
+        console.log('new player',name);
+    },
+
     propTypes: {
         title:React.PropTypes.string.isRequired,
         initialPlayers:React.PropTypes.arrayOf(
