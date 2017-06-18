@@ -1,0 +1,90 @@
+///////////////////SECONDS TIMER
+
+crate stateful stopwatch
+    render
+        div stopwatch
+            h2 'stopwatch'
+            div stopwatch-time 3883
+
+            button 'start'
+            button 'reset'
+
+    add in header, last thing in div.
+
+
+
+##########create state stuff for timer
+    getInitialState
+        running: false
+
+        #how do we do this
+            var startStop;
+            if this.state.running
+                startStop = button stop jsx
+            else
+                startstop = button start jsx
+
+            {startStop}
+
+            /\/\/\/\//
+            {this.state.running ? button stop jsx : button start jsx;}
+        button this . ==> onclick onStop / onStart / onReset
+        onStart
+            this.setState running true
+        onStop
+            "" false
+
+    ###make it tick
+
+        componentDidMount  //lifecycle method, component did mount
+            //fires as soon as component mounts on page
+            this.interval = setInterval(this.onTick, 100 ms);
+
+
+        this.onTick
+            console.log(onTick);
+
+        #memory leak!  will keep ticking... what about when component unmounts!??
+
+        componentWillUnmount
+            clearInterval(this.interval);
+
+    #### elapsed time
+        every time it ticks, add it up.  can't just add 100 ms.  have to subtract current time from previous tick
+
+        initialState
+            elapsedTime:0
+            previoustime:0
+            //Date.now() ms jan 1 1970
+
+        //on timer, start prev time to now
+        onStart:
+            previousTime:Date.now()
+
+        onTick:
+            if running
+                now = Date.now
+                setState
+                    previousTime = now
+                    elapsedTime: this.state.elapsedtime + (now - this.state.previousTime)
+    #### get seconds from elapsedTime
+        render
+            var seconds = Math.floor(this.state.elapsedTime / 1000)
+            {seconds}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#

@@ -26,9 +26,8 @@ function Header(props){
     return (
         <div className="header">
             <Stats players={props.players} />
-            <h1>
-                {props.title}
-            </h1>
+            <h1>{props.title}</h1>
+            <Stopwatch />
         </div>
     )
 
@@ -166,6 +165,73 @@ var AddPlayerForm = React.createClass({
 
 })
 
+
+var Stopwatch = React.createClass({
+
+
+    getInitialState:function(){
+        return({
+            running:false,
+            elapsedTime:0,
+            previousTime:0,
+        });
+    },
+
+    onStart : function(){
+        this.setState({
+            running:true,
+            previousTime: Date.now(),
+        });
+    },
+
+    onStop : function(){
+        this.setState({
+            running:false,
+        });
+    },
+
+    onReset: function(){
+        console.log('reset');
+    },
+
+    componentDidMount: function(){
+        this.interval = setInterval(this.onTick, 100);
+    },
+
+    componentWillUnmount: function(){
+        clearInterval(this.interval);
+    },
+
+
+    onTick: function(){
+        console.log(this.state.running, this.onTick);
+        if(this.state.running){
+            var now = Date.now();
+            this.setState({
+                previousTime:now,
+                elapsedTime: this.state.elapsedTime + (now-this.state.previousTime)
+            });
+        }
+
+    },
+
+    render:function(){
+        var seconds = Math.floor(this.state.elapsedTime / 1000);
+        return(
+            <div className="stopwatch">
+                <h2>StOpWaTcH</h2>
+                <div className='stopwatch-time'>{seconds}</div>
+                {
+                    this.state.running ?
+                        <button onClick={this.onStop}>Stop</button>
+                    :
+                        <button onClick={this.onStart}>Start</button>
+                }
+                <button onClick={this.onReset}>Reset</button>
+            </div>
+        );
+    },
+})
 
 var Application = React.createClass({
     render: function(){
