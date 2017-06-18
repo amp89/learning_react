@@ -192,6 +192,10 @@ var Stopwatch = React.createClass({
 
     onReset: function(){
         console.log('reset');
+        this.setState({
+            elapsedTime:0,
+            previousTime:Date.now(),
+        })
     },
 
     componentDidMount: function(){
