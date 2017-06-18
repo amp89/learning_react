@@ -90,6 +90,25 @@ Unidirectional dataflow:
         this.setState(this.state);
 
 
+//////////////////////stats
+
+function component Stats (props)
+    table
+        thead //need this so browser doens't change this automatically
+        tbody //need this so browser doens't change this automatically
+            tr
+                td Players
+                td PlayerCount
+            tr
+                td Total Points
+                td 1265484
+    call this in <Header>
+
+#####################
+    using reduce functions
+    reduce function(accumulator,item){
+        return accumulator += item.score or whatever
+    }, startValue
 
 
 
