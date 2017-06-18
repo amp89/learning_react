@@ -23,4 +23,9 @@ Unidirectional dataflow:
 
 #############  Counter is stateful component right now
     back to functional component right now.
-    
+        changed this.state back to props
+        Added PropTypes
+        removed onClick
+
+        change Component in player from <Counter initialScore=... to score... >
+        
