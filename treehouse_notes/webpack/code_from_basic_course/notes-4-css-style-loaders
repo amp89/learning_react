@@ -1,0 +1,34 @@
+style loader stuff
+
+
+npm install --save-dev style-loader css-loader
+
+style-loader embeds css
+css loader parses css, applies to document
+
+
+in webpack.config.js
+
+in loaders, add:
+    {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'//!chains loders
+    }
+
+
+    style loader output is PIPED into css loader
+
+in app.js,
+
+    import './css/style.css'
+
+    now remove link to stylesheet
+
+"--inline" to start script in package.json,
+    adds to bundle.js on runtime
+    updates changes realtime
+    fully reloads, all state reset
+
+
+
+npm start
