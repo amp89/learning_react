@@ -1,0 +1,44 @@
+create webpack.config.js
+
+module.exports = {
+    entry:''./app.js', //where file starts
+
+    output: {
+        //path: 'build'//optional, where to output
+        filename: 'bundle.js' //defaults ./
+    },
+
+    module: {
+        //want jsx to js
+        //es6 to normal
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/ ,
+                loader: 'babel-loader',
+            }
+
+        ]
+    },
+
+}
+
+
+index.html should link to bundle.js via script tag, take out vendors and app.js
+
+
+now import stuff in app.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+to run a build:
+    webpack (globally)
+
+    node_modules/.bin/webpack (locally)
+
+    if you don't wanna type that ^^^^^
+        to scripts in package.json
+            "build":"webpack"
+
+        "npm run build"
+        

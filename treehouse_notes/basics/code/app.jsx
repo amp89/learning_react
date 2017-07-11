@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
 var players = [
     {
         name:'alex peterson',
@@ -17,7 +21,7 @@ var players = [
         name:'bob boberstein',
         score:65,
         id:3,
-    },
+    }
 
 
 ];
