@@ -1,0 +1,22 @@
+make a server
+
+
+npm install --save-dev webpack-dev-server
+
+
+
+add "start" to "scripts:
+    "start": "webpack-dev-server"
+
+"npm start" will start the app
+
+
+startscript
+    add --port 8000 to set a port
+
+!have to restart server if you change a package.json setting
+
+
+
+startscript
+    add "--progress" //build status
